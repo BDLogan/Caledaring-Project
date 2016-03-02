@@ -34,9 +34,21 @@ public class icsFileGenerator
 			+"END:VEVENT\n"
 			+"END:VCALENDAR\n";
 		
-		System.out.print(calendarDetails);
-			
+
+		try (PrintWriter outPut = new PrintWriter ("iCal.ics"))	{
+			outPut.print(calendarDetails);
+			System.out.println("iCal had been created");
+		}
 		
+		//catches if no file had been made
+		catch (IOException e){
+			System.out.println("No file found");
+		}
+		
+		
+	}
+
+}
 		
 	}
 
